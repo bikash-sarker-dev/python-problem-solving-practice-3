@@ -1,30 +1,46 @@
 # Task: Employee Salary Management System
 import json
 
-employee_list = []
+emp_name = input("Enter Name: ")
+emp_id = input("Enter ID: ")
+emp_salary = int(input("Enter Salary: "))
+
 # create function 
 def add_employee(name, id, salary):
 
-    create_employee = {
-        "name": name,
-        "id": id,
-        "salary": salary,
-    }
+    with open('employess.txt', 'a') as f:
+        f.write(f"{name} | {id} | {salary}\n")
 
-    employee_list.append(create_employee)
+    return "The saves the data into the file."
+
+        
   
 
-    return employee_list
+
+def view_employees():
+    try:
+        with open('employess.txt', 'r') as f:
+            emp_content = f.read()
+            print(emp_content)
+
+            print("Employee Added Successfully")
+
+    except FileNotFoundError:
+        print("No Employee Records Found!")
 
 
 
-add_employee("jamal",'343','30000')
-add_employee("jamal2",'34354','300004')
-add_employee("jamal3",'34354','300004')
+emp = add_employee(emp_name,emp_id,emp_salary)
 
-# print(employee_list)
+print(emp)
 
-with open('employess.txt', 'a') as f:
-    em_dict_data  = json.dumps(employee_list)
-    f.write(em_dict_data)
+
+view_employees()
+
+
+
+
+
+
+    
 
