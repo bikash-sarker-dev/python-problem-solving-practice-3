@@ -5,7 +5,7 @@ emp_name = input("Enter Name: ")
 emp_id = input("Enter ID: ")
 emp_salary = int(input("Enter Salary: "))
 
-# create function 
+# create add employee function 
 def add_employee(name, id, salary):
 
     with open('employess.txt', 'a') as f:
@@ -16,7 +16,7 @@ def add_employee(name, id, salary):
         
   
 
-
+# view employee function 
 def view_employees():
     try:
         with open('employess.txt', 'r') as f:
@@ -31,7 +31,6 @@ def view_employees():
 
 
 emp = add_employee(emp_name,emp_id,emp_salary)
-
 print(emp)
 
 
